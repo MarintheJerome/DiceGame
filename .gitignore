@@ -34,6 +34,8 @@
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
+.idea
+
 # JIRA plugin
 atlassian-ide-plugin.xml
 
