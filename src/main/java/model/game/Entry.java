@@ -1,4 +1,4 @@
-package game;
+package model.game;
 
 /**
  * Created by jerome on 06/01/2017.
