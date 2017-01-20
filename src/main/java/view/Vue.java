@@ -17,7 +17,7 @@ public class Vue extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader preloader = new FXMLLoader(getClass().getClassLoader().getResource("principale.fxml"));
+        FXMLLoader preloader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/principale.fxml"));
         Parent root = preloader.load();
         scene = new Scene(root,600,400);
         scene.getStylesheets().clear();
