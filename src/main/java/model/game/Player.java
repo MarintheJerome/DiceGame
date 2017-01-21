@@ -6,32 +6,33 @@ import java.util.Observable;
  * Created by jerome on 06/01/2017.
  */
 public class Player extends Observable {
-    public String name;
-    public int score;
+    private int id;
+    private String lastname;
+    private String firstname;
 
-    public Player(String name){
-        this.name = name;
-        this.score = 0;
+    public Player(int id, String lastname, String firstname){
+        this.id = id;
+        this.lastname = lastname;
+        this.firstname = firstname;
     }
 
-    public String getName() {
-        return name;
+    public int getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getLastname() {
+        return lastname;
     }
 
-    public int getScore() {
-        return score;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public String getFirstname() {
+        return firstname;
     }
 
-    // Lancer les deux dès
-    public void roll(){
-
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 }

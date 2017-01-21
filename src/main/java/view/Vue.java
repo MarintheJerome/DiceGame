@@ -11,12 +11,12 @@ import javafx.stage.Stage;
  * Created by jerome on 19/01/2017.
  */
 public class Vue extends Application{
-    private static Scene scene;
-    private static Stage stagePrincipal;
+    public static Scene scene;
+    public static Stage stagePrincipal;
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader preloader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/principale.fxml"));
+        FXMLLoader preloader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/accueil.fxml"));
         Parent root = preloader.load();
         scene = new Scene(root,600,400);
         scene.getStylesheets().clear();
