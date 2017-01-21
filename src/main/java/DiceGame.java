@@ -1,4 +1,4 @@
-package model.game;
+import view.Vue;
 
 /**
  * Created by jerome on 06/01/2017.
@@ -14,6 +14,6 @@ public class DiceGame {
     }
 
     private DiceGame() {
-
+        Vue.launch(Vue.class);
     }
 }

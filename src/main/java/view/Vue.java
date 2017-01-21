@@ -11,9 +11,8 @@ import javafx.stage.Stage;
  * Created by jerome on 19/01/2017.
  */
 public class Vue extends Application{
-    public static Scene scene;
-    public static Stage stagePrincipal;
-    public static Pane paneUsed;
+    private static Scene scene;
+    private static Stage stagePrincipal;
 
     @Override
     public void start(Stage stage) throws Exception {

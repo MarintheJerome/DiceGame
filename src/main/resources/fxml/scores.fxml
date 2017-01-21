@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ScoreController">
    <children>
@@ -12,5 +13,11 @@
             <Font size="17.0" />
          </font>
       </Label>
+      <TableView layoutX="136.0" layoutY="112.0" prefHeight="200.0" prefWidth="339.0">
+        <columns>
+          <TableColumn prefWidth="178.0" text="Joueur" />
+          <TableColumn prefWidth="160.0" text="Score" />
+        </columns>
+      </TableView>
    </children>
 </Pane>
