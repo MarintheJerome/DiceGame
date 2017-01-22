@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="386.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="149.0" layoutY="25.0" prefHeight="17.0" prefWidth="97.0" text="Règles du jeu">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="17.0" layoutY="74.0" text="- Un jeu de dès" />
+      <Label layoutX="17.0" layoutY="100.0" text="- Le joueur lance 10x2 dès" />
+      <Label layoutX="17.0" layoutY="126.0" text="- Si le joueur fait 7 il marque 10 points à son score" />
+      <Label layoutX="17.0" layoutY="152.0" text="- En fin de partie, son score est inscrit dans le tableau des scores" />
+   </children>
+</Pane>

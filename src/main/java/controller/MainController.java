@@ -1,16 +1,24 @@
 package controller;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.game.Die;
 import model.game.Player;
+import view.Vue;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,7 +30,7 @@ public class MainController implements Initializable {
     private final static int NUMBER_ROLL_AUTHORIZED = 10;
 
     @FXML
-    public Button buttonHighScores, buttonSave, buttonRules, buttonDice;
+    public Button buttonHighScores, buttonSave, buttonRules, buttonDice, buttonReplay;
 
     @FXML
     public ImageView pictureDie1, pictureDie2;
@@ -30,11 +38,18 @@ public class MainController implements Initializable {
     @FXML
     public TextField textFieldScore, textFieldDie1, textFieldDie2;
 
-    public Die die1, die2;
+    @FXML
+    public Label labelEndGame;
 
-    public Player player;
+    private Die die1, die2;
 
-    public int nbRolls = 0;
+    private Player player;
+
+    private int nbRolls = 0;
+
+    private Pane page = null;
+
+    private static Stage gameWindow;
 
     public void initialize(URL location, ResourceBundle resources) {
         pictureDie1.setImage(new Image(getClass().getResourceAsStream("/dice/dice6.png")));
@@ -68,7 +83,10 @@ public class MainController implements Initializable {
 
         // end game, ajouter tableau des scores
         if(nbRolls == NUMBER_ROLL_AUTHORIZED){
-
+            buttonDice.setDisable(true);
+            buttonReplay.setVisible(true);
+            labelEndGame.setVisible(true);
+            // TODO add dans la partie dans le tableau des scores
         }
     }
 
@@ -98,6 +116,30 @@ public class MainController implements Initializable {
             default: // should never go here
                    return null;
         }
+    }
+
+    @FXML
+    public void rules() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/rules.fxml"));
+        // Ouverture de la fenêtre de jeu
+        page = (Pane) loader.load();
+
+        gameWindow = new Stage();
+        gameWindow.setTitle("SUPER REGLES");
+        Scene scene = new Scene(page, 386, 218);
+        gameWindow.setScene(scene);
+        gameWindow.showAndWait();
+    }
+
+    @FXML
+    public void replay(){
+        buttonDice.setDisable(false);
+        buttonReplay.setVisible(false);
+        labelEndGame.setVisible(false);
+        textFieldDie1.setText("");
+        textFieldDie2.setText("");
+        textFieldScore.setText("0");
+        nbRolls = 0;
     }
 
     public void setPlayer(Player player){

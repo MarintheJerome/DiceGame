@@ -15,6 +15,7 @@ import view.Vue;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
@@ -30,7 +31,7 @@ public class AccueilController implements Initializable {
 
     private Pane page = null;
 
-    public static Stage gameWindow;
+    private static Stage gameWindow;
 
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -56,18 +57,20 @@ public class AccueilController implements Initializable {
                 gameWindow.setTitle("Les Colons de Catanes");
                 Scene scene = new Scene(page, 600, 400);
                 gameWindow.setScene(scene);
-                gameWindow.setMaximized(true);
                 Vue.stagePrincipal.close();
+                gameWindow.showAndWait();
             } catch (IOException e) {
                 // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private Player insertOrGetPlayer(String text, String text1) {
+    private Player insertOrGetPlayer(String lastname, String firstname) throws SQLException {
         FactoryBDD factory = new FactoryBDD();
         BDD mariaDB = factory.getBDD("MariaDB");
-        return mariaDB.insertPlayer();
+        return mariaDB.insertPlayer(lastname, firstname);
     }
 }
