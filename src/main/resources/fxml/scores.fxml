@@ -6,17 +6,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ScoreController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HighScoresController">
    <children>
-      <Label layoutX="229.0" layoutY="42.0" prefHeight="42.0" prefWidth="143.0" text="Tableau des scores">
+      <Label layoutX="188.0" layoutY="33.0" prefHeight="42.0" prefWidth="143.0" text="Tableau des scores">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TableView layoutX="136.0" layoutY="112.0" prefHeight="200.0" prefWidth="339.0">
+      <TableView fx:id="tableView" layoutX="92.0" layoutY="101.0" prefHeight="200.0" prefWidth="339.0">
         <columns>
-          <TableColumn prefWidth="178.0" text="Joueur" />
-          <TableColumn prefWidth="160.0" text="Score" />
         </columns>
       </TableView>
    </children>

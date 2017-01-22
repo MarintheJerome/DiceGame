@@ -132,6 +132,19 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    public void highScores() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/scores.fxml"));
+        // Ouverture de la fenêtre de jeu
+        page = (Pane) loader.load();
+
+        gameWindow = new Stage();
+        gameWindow.setTitle("SUPER TABLEAU DES SCORES");
+        Scene scene = new Scene(page, 500, 350);
+        gameWindow.setScene(scene);
+        gameWindow.showAndWait();
+    }
+
+    @FXML
     public void replay(){
         buttonDice.setDisable(false);
         buttonReplay.setVisible(false);

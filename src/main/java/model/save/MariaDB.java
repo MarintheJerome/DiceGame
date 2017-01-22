@@ -1,7 +1,9 @@
 package model.save;
 
+import model.game.Entry;
 import model.game.Player;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Created by jerome on 21/01/2017.
@@ -68,6 +70,35 @@ public class MariaDB implements BDD {
         preparedStatement = connection.prepareStatement(request);
         preparedStatement.setString(1, lastname);
         preparedStatement.setString(2, firstname);
+        ResultSet result = preparedStatement.executeQuery();
+        if(result.next()){
+            return new Player(result.getInt("idPlayer"), result.getString("lastname"), result.getString("firstname"));
+        }
+        else{
+            return null;
+        }
+    }
+
+    @Override
+    public ArrayList<Entry> getHighScores() throws SQLException {
+        ArrayList<Entry> toReturn = new ArrayList<>();
+        PreparedStatement preparedStatement;
+        String request = "SELECT * FROM Highscores";
+        preparedStatement = connection.prepareStatement(request);
+        ResultSet result = preparedStatement.executeQuery();
+        while(result.next()){
+            int idPlayer = result.getInt("idPlayer");
+            Player player = getPlayerFromId(idPlayer);
+            toReturn.add(new Entry(player.getLastname(), player.getFirstname(), result.getInt("score"), result.getDate("date")));
+        }
+        return toReturn;
+    }
+
+    private Player getPlayerFromId(int idPlayer) throws SQLException {
+        PreparedStatement preparedStatement;
+        String request = "SELECT * FROM Player WHERE idPlayer = ?";
+        preparedStatement = connection.prepareStatement(request);
+        preparedStatement.setInt(1, idPlayer);
         ResultSet result = preparedStatement.executeQuery();
         if(result.next()){
             return new Player(result.getInt("idPlayer"), result.getString("lastname"), result.getString("firstname"));
