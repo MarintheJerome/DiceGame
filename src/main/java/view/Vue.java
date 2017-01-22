@@ -18,7 +18,7 @@ public class Vue extends Application{
     public void start(Stage stage) throws Exception {
         FXMLLoader preloader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/accueil.fxml"));
         Parent root = preloader.load();
-        scene = new Scene(root,600,400);
+        scene = new Scene(root,400,300);
         scene.getStylesheets().clear();
 
         stage.setTitle("Super jeu de dès");

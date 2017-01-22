@@ -42,7 +42,7 @@ public class AccueilController implements Initializable {
             errorMessage.setVisible(true);
         }
         else{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/client/view/fxml/Proposition.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/principale.fxml"));
             try {
                 Player player = insertOrGetPlayer(lastname.getText(), firstname.getText());
 
