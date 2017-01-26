@@ -17,6 +17,6 @@ public class Die extends Observable {
     }
 
     public void roll(){
-        faceValue = ((int) (Math.random() * 6)) + 1;
+        faceValue = SuperRandomizer.MEGARANDOMIZER(1, 6);
     }
 }
