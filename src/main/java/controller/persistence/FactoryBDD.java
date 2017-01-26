@@ -1,4 +1,4 @@
-package model.save;
+package controller.persistence;
 
 /**
  * Created by jerome on 21/01/2017.

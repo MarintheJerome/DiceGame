@@ -14,6 +14,11 @@ public class Player{
         this.firstname = firstname;
     }
 
+    public Player(String lastname, String firstname){
+        this.lastname = lastname;
+        this.firstname = firstname;
+    }
+
     public int getId() {
         return id;
     }

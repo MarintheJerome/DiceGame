@@ -1,4 +1,4 @@
-package model.save;
+package controller.persistence;
 
 import model.game.Entry;
 import model.game.Player;
@@ -30,46 +30,44 @@ public class MariaDB implements BDD {
             System.out.println("Connecting to a selected database...");
             connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/DiceGame", "root", "root");
             System.out.println("Connected database successfully...");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void saveGame() {
-
+    public void saveGame(Player player) throws SQLException {
+        player = insertPlayer(player);
     }
 
-    public Player insertPlayer(String lastname, String firstname) throws SQLException {
-        Player player = checkIfPlayerExists(lastname, firstname);
-        if(player == null){
+    private Player insertPlayer(Player player) throws SQLException {
+        Player playerToInsert = checkIfPlayerExists(player);
+        if(playerToInsert == null) {
             PreparedStatement preparedStatement;
             String request = "INSERT INTO PLAYER(lastname, firstname) VALUES(?, ?)";
             preparedStatement = connection.prepareStatement(request);
-            preparedStatement.setString(1, lastname);
-            preparedStatement.setString(2, firstname);
+            preparedStatement.setString(1, player.getLastname());
+            preparedStatement.setString(2, player.getFirstname());
             preparedStatement.executeUpdate();
             try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    return new Player(Math.toIntExact(generatedKeys.getLong(1)), lastname, firstname);
+                    return new Player(Math.toIntExact(generatedKeys.getLong(1)), player.getLastname(), player.getFirstname());
                 }
                 else {
                     throw new SQLException("Creating user failed, no ID obtained.");
                 }
             }
-
-        }else{
-            return player;
+        }
+        else{
+            return playerToInsert;
         }
     }
 
-    public Player checkIfPlayerExists(String lastname, String firstname) throws SQLException {
+    private Player checkIfPlayerExists(Player player) throws SQLException {
         PreparedStatement preparedStatement;
         String request = "SELECT * FROM Player WHERE lastname = ? AND firstname = ?";
         preparedStatement = connection.prepareStatement(request);
-        preparedStatement.setString(1, lastname);
-        preparedStatement.setString(2, firstname);
+        preparedStatement.setString(1, player.getLastname());
+        preparedStatement.setString(2, player.getFirstname());
         ResultSet result = preparedStatement.executeQuery();
         if(result.next()){
             return new Player(result.getInt("idPlayer"), result.getString("lastname"), result.getString("firstname"));

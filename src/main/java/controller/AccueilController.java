@@ -9,13 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.game.Player;
-import model.save.FactoryBDD;
-import model.save.BDD;
 import view.Vue;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
@@ -45,16 +42,16 @@ public class AccueilController implements Initializable {
         else{
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/principale.fxml"));
             try {
-                Player player = insertOrGetPlayer(lastname.getText(), firstname.getText());
+                Player player = new Player(lastname.getText(), firstname.getText());
 
                 // Ouverture de la fenêtre de jeu
-                page = (Pane) loader.load();
+                page = loader.load();
 
                 MainController controller = loader.getController();
                 controller.setPlayer(player);
 
                 gameWindow = new Stage();
-                gameWindow.setTitle("Les Colons de Catanes");
+                gameWindow.setTitle("SUPER DICE GAME");
                 Scene scene = new Scene(page, 600, 400);
                 gameWindow.setScene(scene);
                 Vue.stagePrincipal.close();
@@ -62,15 +59,7 @@ public class AccueilController implements Initializable {
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
             }
         }
-    }
-
-    private Player insertOrGetPlayer(String lastname, String firstname) throws SQLException {
-        FactoryBDD factory = new FactoryBDD();
-        BDD mariaDB = factory.getBDD("MariaDB");
-        return mariaDB.insertPlayer(lastname, firstname);
     }
 }

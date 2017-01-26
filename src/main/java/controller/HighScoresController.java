@@ -8,9 +8,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.game.Entry;
-import model.game.HighScore;
-import model.save.BDD;
-import model.save.FactoryBDD;
+import controller.persistence.BDD;
+import controller.persistence.FactoryBDD;
 
 import java.net.URL;
 import java.sql.Date;

@@ -1,6 +1,5 @@
 package controller;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,10 +15,12 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.game.Die;
 import model.game.Player;
-import view.Vue;
+import controller.persistence.BDD;
+import controller.persistence.FactoryBDD;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
@@ -64,7 +65,7 @@ public class MainController implements Initializable, Observer {
     }
 
     @FXML
-    public void rollDice(){
+    public void rollDice() throws SQLException {
         nbRolls++;
 
         animateDes();
@@ -88,8 +89,15 @@ public class MainController implements Initializable, Observer {
             buttonDice.setDisable(true);
             buttonReplay.setVisible(true);
             labelEndGame.setVisible(true);
-            // TODO add dans la partie dans le tableau des scores
+
+            saveGame();
         }
+    }
+
+    private void saveGame() throws SQLException {
+        FactoryBDD factory = new FactoryBDD();
+        BDD mariaDB = factory.getBDD("MariaDB");
+        mariaDB.saveGame(player);
     }
 
     private void animateDes() {
