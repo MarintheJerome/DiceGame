@@ -3,6 +3,7 @@ package controller.persistence;
 import model.game.Entry;
 import model.game.Player;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -35,8 +36,19 @@ public class MariaDB implements BDD {
         }
     }
 
-    public void saveGame(Player player) throws SQLException {
+    public void saveGame(Player player, int score) throws SQLException {
         player = insertPlayer(player);
+        insertHighScores(player, score);
+    }
+
+    private void insertHighScores(Player player, int score) throws SQLException {
+        PreparedStatement preparedStatement;
+        String request = "INSERT INTO HIGHSCORES(idPlayer, score, date) VALUES(?, ?, ?)";
+        preparedStatement = connection.prepareStatement(request);
+        preparedStatement.setInt(1, player.getId());
+        preparedStatement.setInt(2, score);
+        preparedStatement.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+        preparedStatement.executeUpdate();
     }
 
     private Player insertPlayer(Player player) throws SQLException {

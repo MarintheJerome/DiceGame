@@ -97,7 +97,7 @@ public class MainController implements Initializable, Observer {
     private void saveGame() throws SQLException {
         FactoryBDD factory = new FactoryBDD();
         BDD mariaDB = factory.getBDD("MariaDB");
-        mariaDB.saveGame(player);
+        mariaDB.saveGame(player, Integer.parseInt(textFieldScore.getText()));
     }
 
     private void animateDes() {

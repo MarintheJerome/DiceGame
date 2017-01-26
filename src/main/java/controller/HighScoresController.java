@@ -46,6 +46,7 @@ public class HighScoresController implements Initializable {
         firstnameCol.setCellValueFactory(new PropertyValueFactory<Entry,String>("firstname"));
 
         TableColumn scoreCol = new TableColumn("Score");
+        scoreCol.setSortType(TableColumn.SortType.DESCENDING);
         scoreCol.setPrefWidth(70);
         scoreCol.setCellValueFactory(
                 new PropertyValueFactory<Entry,Integer>("score")
@@ -58,6 +59,7 @@ public class HighScoresController implements Initializable {
         );
         tableView.setItems(convertIntoObservableList(highScores));
         tableView.getColumns().addAll(lastnameCol, firstnameCol, scoreCol, emailCol);
+        tableView.getSortOrder().add(scoreCol);
     }
 
     private ObservableList<Entry> convertIntoObservableList(ArrayList<Entry> arrayListEntries){

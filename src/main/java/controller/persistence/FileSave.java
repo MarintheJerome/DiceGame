@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class FileSave implements BDD {
 
-    public void saveGame(Player player) {
+    public void saveGame(Player player, int score) {
 
     }
 

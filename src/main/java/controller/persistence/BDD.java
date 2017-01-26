@@ -10,6 +10,6 @@ import java.util.ArrayList;
  * Created by jerome on 21/01/2017.
  */
 public interface BDD {
-    void saveGame(Player player) throws SQLException;
+    void saveGame(Player player, int score) throws SQLException;
     ArrayList<Entry> getHighScores() throws SQLException;
 }

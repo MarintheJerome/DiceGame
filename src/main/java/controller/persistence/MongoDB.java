@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class MongoDB implements BDD {
     @Override
-    public void saveGame(Player player) throws SQLException {
+    public void saveGame(Player player, int score) throws SQLException {
 
     }
 
