@@ -20,12 +20,14 @@ import view.Vue;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
 /**
  * Created by jerome on 19/01/2017.
  */
-public class MainController implements Initializable {
+public class MainController implements Initializable, Observer {
 
     private final static int NUMBER_ROLL_AUTHORIZED = 10;
 
@@ -157,5 +159,10 @@ public class MainController implements Initializable {
 
     public void setPlayer(Player player){
         this.player = player;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
     }
 }

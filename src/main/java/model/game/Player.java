@@ -1,11 +1,9 @@
 package model.game;
 
-import java.util.Observable;
-
 /**
  * Created by jerome on 06/01/2017.
  */
-public class Player extends Observable {
+public class Player{
     private int id;
     private String lastname;
     private String firstname;
