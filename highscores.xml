@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <HighScores>
     <entry>
-        <date>2017-01-29T13:46:43.293+01:00</date>
-        <firstname>prenom</firstname>
-        <lastname>test</lastname>
-        <score>20</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T13:46:43.294+01:00</date>
-        <firstname>2</firstname>
-        <lastname>2</lastname>
-        <score>20</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T13:54:29.562+01:00</date>
-        <firstname>test</firstname>
-        <lastname>marche</lastname>
-        <score>50</score>
+        <date>2017-01-29T13:59:47.039+01:00</date>
+        <firstname>Marinthe</firstname>
+        <lastname>Jerome</lastname>
+        <score>10</score>
     </entry>
 </HighScores>
