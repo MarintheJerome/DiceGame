@@ -2,6 +2,7 @@ package model.game;
 
 import javax.xml.bind.annotation.XmlElement;
 import java.util.Date;
+import org.bson.Document;
 
 /**
  * Created by jerome on 06/01/2017.
@@ -23,6 +24,13 @@ public class Entry {
         this.firstname = firstname;
         this.score = score;
         this.date = date;
+    }
+
+    public Entry(Document document){
+        this.lastname = document.get("lastname").toString();
+        this.firstname = document.get("firstname").toString();
+        this.score = (int) document.get("score");
+        this.date =(Date) document.get("date");
     }
 
     public String getLastname() {

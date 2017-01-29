@@ -99,9 +99,12 @@ public class MainController implements Initializable{
 
         BDD mariaDB = factory.getBDD("MariaDB");
         mariaDB.saveGame(player, Integer.parseInt(textFieldScore.getText()));
-        
+
         BDD file = factory.getBDD("File");
         file.saveGame(player, Integer.parseInt(textFieldScore.getText()));
+
+        BDD mongoDB = factory.getBDD("MongoDB");
+        mongoDB.saveGame(player, Integer.parseInt(textFieldScore.getText()));
     }
 
     private void animateDes() {
