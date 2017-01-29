@@ -4,7 +4,7 @@ package controller.persistence;
  * Created by jerome on 21/01/2017.
  */
 public class FactoryBDD {
-    public BDD getBDD(String type){
+    public Save getBDD(String type){
         if(type == null){
             return null;
         }
