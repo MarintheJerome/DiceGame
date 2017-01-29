@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /**
  * Created by jerome on 21/01/2017.
  */
-public class FileSave implements BDD {
+public class FileSave implements Save {
 
     private HighScores highScores;
 
@@ -25,6 +25,7 @@ public class FileSave implements BDD {
         highScores.setEntries(new ArrayList<>());
     }
 
+    @Override
     public void saveGame(Player player, int score) {
         readCurrentXml();
         saveInXml(player, score);
@@ -58,7 +59,6 @@ public class FileSave implements BDD {
             jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
             jaxbMarshaller.marshal(highScores, new File( "highscores.xml" ) );
-           // jaxbMarshaller.marshal(highScores, System.out );
         } catch (JAXBException e) {
             e.printStackTrace();
         }

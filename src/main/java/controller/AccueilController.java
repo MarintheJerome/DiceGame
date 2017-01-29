@@ -1,7 +1,7 @@
 package controller;
 
-import controller.persistence.BDD;
-import controller.persistence.FactoryBDD;
+import controller.persistence.Save;
+import controller.persistence.SaveFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -69,20 +69,21 @@ public class AccueilController implements Initializable {
     }
 
     private void setChoosenBDD() {
-        FactoryBDD factory = new FactoryBDD();
-        BDD bdd = null;
+        SaveFactory factory = new SaveFactory();
+        Save save = null;
+
         Randomizer randomizer = Randomizer.getInstance();
         int randomValue = randomizer.getRandomValue(1, 3);
 
         if(randomValue == 1){
-            bdd = factory.getBDD("MongoDB");
+            save = factory.getSave("MongoDB");
         }
         if(randomValue == 2){
-            bdd = factory.getBDD("File");
+            save = factory.getSave("File");
         }
         if(randomValue == 3){
-            bdd = factory.getBDD("MariaDB");
+            save = factory.getSave("MariaDB");
         }
-        DiceGame.getInstance().setChoosenBDD(bdd);
+        DiceGame.getInstance().setChoosenSave(save);
     }
 }

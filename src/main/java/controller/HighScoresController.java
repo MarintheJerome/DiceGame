@@ -9,8 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.DiceGame;
 import model.Entry;
-import controller.persistence.BDD;
-import controller.persistence.FactoryBDD;
+import controller.persistence.Save;
 
 import java.net.URL;
 import java.sql.Date;
@@ -31,9 +30,9 @@ public class HighScoresController implements Initializable {
         tableView.setEditable(true);
 
         ArrayList<Entry> highScores = new ArrayList<>();
-        BDD bdd = DiceGame.getInstance().getChoosenBDD();
+        Save save = DiceGame.getInstance().getChoosenSave();
         try {
-             highScores = bdd.getHighScores();
+             highScores = save.getHighScores();
         } catch (SQLException e) {
             e.printStackTrace();
         }

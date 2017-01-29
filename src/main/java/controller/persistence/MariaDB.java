@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by jerome on 21/01/2017.
  */
-public class MariaDB implements BDD {
+public class MariaDB implements Save {
 
     private final String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
     private final String DB_URL = "jdbc:mariadb://192.168.100.174/db";

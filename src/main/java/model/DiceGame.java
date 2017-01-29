@@ -1,6 +1,6 @@
 package model;
 
-import controller.persistence.BDD;
+import controller.persistence.Save;
 
 /**
  * Created by jerome on 06/01/2017.
@@ -8,7 +8,7 @@ import controller.persistence.BDD;
 public class DiceGame {
     private static DiceGame instance = null;
 
-    private BDD choosenBDD;
+    private Save choosenSave;
 
     public synchronized static DiceGame getInstance() {
         if(instance == null){
@@ -21,11 +21,11 @@ public class DiceGame {
 
     }
 
-    public void setChoosenBDD(BDD bdd){
-        this.choosenBDD = bdd;
+    public void setChoosenSave(Save save){
+        this.choosenSave = save;
     }
 
-    public BDD getChoosenBDD(){
-        return this.choosenBDD;
+    public Save getChoosenSave(){
+        return this.choosenSave;
     }
 }

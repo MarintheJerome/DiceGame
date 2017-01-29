@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by jerome on 21/01/2017.
  */
-public class MongoDB implements BDD {
+public class MongoDB implements Save {
 
     private MongoClient mc ;
     private MongoDatabase mdb ;

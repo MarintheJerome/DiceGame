@@ -13,12 +13,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import model.DiceGame;
 import model.Die;
 import model.Player;
-import controller.persistence.BDD;
-import controller.persistence.FactoryBDD;
-import model.Randomizer;
+import controller.persistence.Save;
+import controller.persistence.SaveFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,7 +40,7 @@ public class MainController implements Initializable{
     public TextField textFieldScore, textFieldDie1, textFieldDie2;
 
     @FXML
-    public Label labelEndGame;
+    public Label labelEndGame, labelNbRolls;
 
     private Die die;
 
@@ -66,6 +64,7 @@ public class MainController implements Initializable{
     @FXML
     public void rollDice() throws SQLException {
         nbRolls++;
+        labelNbRolls.setText("Nb lancers : "+nbRolls+ "/10");
 
         animateDes();
         die.roll();
@@ -95,19 +94,19 @@ public class MainController implements Initializable{
     }
 
     private void saveGame() throws SQLException {
-        FactoryBDD factory = new FactoryBDD();
+        SaveFactory factory = new SaveFactory();
 
-        BDD mariaDB;
-        BDD mongoDB;
-        BDD file;
+        Save mariaDB;
+        Save mongoDB;
+        Save file;
 
-        file = factory.getBDD("File");
+        file = factory.getSave("File");
         file.saveGame(player, Integer.parseInt(textFieldScore.getText()));
 
-        mariaDB = factory.getBDD("MariaDB");
+        mariaDB = factory.getSave("MariaDB");
         mariaDB.saveGame(player, Integer.parseInt(textFieldScore.getText()));
 
-        mongoDB = factory.getBDD("MongoDB");
+        mongoDB = factory.getSave("MongoDB");
         mongoDB.saveGame(player, Integer.parseInt(textFieldScore.getText()));
     }
 
@@ -174,6 +173,7 @@ public class MainController implements Initializable{
         textFieldDie2.setText("");
         textFieldScore.setText("0");
         nbRolls = 0;
+        labelNbRolls.setText("Nb lancers : "+nbRolls+ "/10");
     }
 
     public void setPlayer(Player player){

@@ -3,8 +3,8 @@ package controller.persistence;
 /**
  * Created by jerome on 21/01/2017.
  */
-public class FactoryBDD {
-    public Save getBDD(String type){
+public class SaveFactory {
+    public Save getSave(String type){
         if(type == null){
             return null;
         }
