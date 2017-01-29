@@ -57,7 +57,7 @@ public class FileSave implements BDD {
             jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
             jaxbMarshaller.marshal(highScores, new File( "highscores.xml" ) );
-            jaxbMarshaller.marshal(highScores, System.out );
+           // jaxbMarshaller.marshal(highScores, System.out );
         } catch (JAXBException e) {
             e.printStackTrace();
         }

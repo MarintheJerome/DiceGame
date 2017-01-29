@@ -22,15 +22,10 @@ public class MariaDB implements BDD {
 
     public MariaDB(){
         connection = null;
-        Statement stmt = null;
         try {
-            //STEP 2: Register JDBC driver
             Class.forName("org.mariadb.jdbc.Driver");
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
             connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/DiceGame", "root", "root");
-            System.out.println("Connected database successfully...");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

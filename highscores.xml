@@ -36,4 +36,22 @@
         <lastname>rere</lastname>
         <score>40</score>
     </entry>
+    <entry>
+        <date>2017-01-29T14:24:57.643+01:00</date>
+        <firstname>ezez</firstname>
+        <lastname>ezzeez</lastname>
+        <score>10</score>
+    </entry>
+    <entry>
+        <date>2017-01-29T14:25:35.017+01:00</date>
+        <firstname>zaaz</firstname>
+        <lastname>azzaaz</lastname>
+        <score>20</score>
+    </entry>
+    <entry>
+        <date>2017-01-29T14:26:17.737+01:00</date>
+        <firstname>fefe</firstname>
+        <lastname>fefefe</lastname>
+        <score>0</score>
+    </entry>
 </HighScores>

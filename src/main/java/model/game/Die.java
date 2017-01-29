@@ -12,7 +12,7 @@ public class Die implements Observer {
 
     public Die(){
         faceValue = 1;
-        randomizer = new Randomizer();
+        randomizer = Randomizer.getInstance();
     }
 
     public int getFaceValue() {
