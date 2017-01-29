@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 /**
  * Created by jerome on 19/01/2017.
  */
-public class MainController implements Initializable, Observer {
+public class MainController implements Initializable{
 
     private final static int NUMBER_ROLL_AUTHORIZED = 10;
 
@@ -96,8 +96,13 @@ public class MainController implements Initializable, Observer {
 
     private void saveGame() throws SQLException {
         FactoryBDD factory = new FactoryBDD();
-        BDD mariaDB = factory.getBDD("MariaDB");
+
+       /* BDD mariaDB = factory.getBDD("MariaDB");
         mariaDB.saveGame(player, Integer.parseInt(textFieldScore.getText()));
+
+        BDD mongoDB = factory.getBDD("MongoDB");*/
+        BDD file = factory.getBDD("File");
+        file.saveGame(player, Integer.parseInt(textFieldScore.getText()));
     }
 
     private void animateDes() {
@@ -167,10 +172,5 @@ public class MainController implements Initializable, Observer {
 
     public void setPlayer(Player player){
         this.player = player;
-    }
-
-    @Override
-    public void update(Observable o, Object arg) {
-
     }
 }

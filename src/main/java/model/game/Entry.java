@@ -1,15 +1,22 @@
 package model.game;
 
-import java.sql.Date;
+import javax.xml.bind.annotation.XmlElement;
+import java.util.Date;
 
 /**
  * Created by jerome on 06/01/2017.
  */
 public class Entry {
+
     private String lastname;
+
     private String firstname;
+
     private int score;
+
     private Date date;
+
+    public Entry(){}
 
     public Entry(String lastname, String firstname, int score, Date date) {
         this.lastname = lastname;
@@ -22,6 +29,7 @@ public class Entry {
         return lastname;
     }
 
+    @XmlElement
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
