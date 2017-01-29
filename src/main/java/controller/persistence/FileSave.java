@@ -22,6 +22,7 @@ public class FileSave implements BDD {
 
     public FileSave(){
         highScores = HighScores.getInstance();
+        highScores.setEntries(new ArrayList<>());
     }
 
     public void saveGame(Player player, int score) {

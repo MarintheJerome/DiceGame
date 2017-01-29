@@ -8,11 +8,12 @@ import java.util.Observer;
  */
 public class Die implements Observer {
     private Randomizer randomizer;
+
     private int faceValue;
 
     public Die(){
-        faceValue = 1;
-        randomizer = Randomizer.getInstance();
+        this.randomizer = Randomizer.getInstance();
+        this.randomizer.addObserver(this);
     }
 
     public int getFaceValue() {
@@ -20,12 +21,11 @@ public class Die implements Observer {
     }
 
     public void roll(){
-        faceValue = randomizer.getRandomValue(1, 6);
+        this.randomizer.getRandomValue(1, 6);
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        Randomizer r = (Randomizer) o;
-        faceValue = r.getRandomValue(1, 6);
+        this.faceValue = (int) arg;
     }
 }

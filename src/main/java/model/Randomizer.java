@@ -10,7 +10,6 @@ public class Randomizer extends Observable{
 
     private int randomValue;
 
-
     private Randomizer(){
         randomValue = 0;
     }
@@ -24,12 +23,12 @@ public class Randomizer extends Observable{
 
     public int getRandomValue(int min, int max){
         setRandomValue(min, max);
-        return randomValue;
+        return this.randomValue;
     }
 
     private void setRandomValue(int min, int max) {
-        randomValue = ((int) (Math.random() * max)) + min;
+        this.randomValue = ((int) (Math.random() * max)) + min;
         setChanged();
-        notifyObservers();
+        notifyObservers(this.randomValue);
     }
 }

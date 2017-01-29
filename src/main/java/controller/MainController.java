@@ -18,6 +18,7 @@ import model.Die;
 import model.Player;
 import controller.persistence.BDD;
 import controller.persistence.FactoryBDD;
+import model.Randomizer;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,7 +44,7 @@ public class MainController implements Initializable{
     @FXML
     public Label labelEndGame;
 
-    private Die die1, die2;
+    private Die die;
 
     private Player player;
 
@@ -59,8 +60,7 @@ public class MainController implements Initializable{
 
         textFieldScore.setText("0");
 
-        die1 = new Die();
-        die2 = new Die();
+        die = new Die();
     }
 
     @FXML
@@ -68,16 +68,17 @@ public class MainController implements Initializable{
         nbRolls++;
 
         animateDes();
-        die1.roll();
-        die2.roll();
+        die.roll();
+        pictureDie1.setImage(getPictureFromRoll(die.getFaceValue()));
+        textFieldDie1.setText(Integer.toString(die.getFaceValue()));
 
-        pictureDie1.setImage(getPictureFromRoll(die1.getFaceValue()));
-        pictureDie2.setImage(getPictureFromRoll(die2.getFaceValue()));
+        int resultat = die.getFaceValue();
 
-        textFieldDie1.setText(Integer.toString(die1.getFaceValue()));
-        textFieldDie2.setText(Integer.toString(die2.getFaceValue()));
+        die.roll();
+        pictureDie2.setImage(getPictureFromRoll(die.getFaceValue()));
+        textFieldDie2.setText(Integer.toString(die.getFaceValue()));
 
-        int resultat = die1.getFaceValue() + die2.getFaceValue();
+        resultat += die.getFaceValue();
         if(resultat == 7){
             int currentScore = Integer.parseInt(textFieldScore.getText()) + 10;
             textFieldScore.setText(Integer.toString(currentScore));

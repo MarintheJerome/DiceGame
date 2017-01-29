@@ -7,6 +7,7 @@ import controller.persistence.BDD;
  */
 public class DiceGame {
     private static DiceGame instance = null;
+
     private BDD choosenBDD;
 
     public synchronized static DiceGame getInstance() {

@@ -1,63 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <HighScores>
     <entry>
-        <date>2017-01-29T13:59:47.039+01:00</date>
-        <firstname>Marinthe</firstname>
-        <lastname>Jerome</lastname>
+        <date>2017-01-29T21:23:57.227+01:00</date>
+        <firstname>az</firstname>
+        <lastname>za</lastname>
         <score>10</score>
     </entry>
     <entry>
-        <date>2017-01-29T14:07:26.946+01:00</date>
-        <firstname>ffe</firstname>
-        <lastname>fefe</lastname>
-        <score>20</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T14:08:12.804+01:00</date>
-        <firstname>zdzd</firstname>
-        <lastname>zdzdzd</lastname>
+        <date>2017-01-29T21:24:03.125+01:00</date>
+        <firstname>az</firstname>
+        <lastname>za</lastname>
         <score>30</score>
     </entry>
     <entry>
-        <date>2017-01-29T14:08:55.784+01:00</date>
-        <firstname>zddz</firstname>
-        <lastname>zdzd</lastname>
+        <date>2017-01-29T21:24:08.680+01:00</date>
+        <firstname>az</firstname>
+        <lastname>za</lastname>
         <score>10</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T14:18:38.234+01:00</date>
-        <firstname>ytyt</firstname>
-        <lastname>ttyt</lastname>
-        <score>10</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T14:19:36.479+01:00</date>
-        <firstname>fefer</firstname>
-        <lastname>rere</lastname>
-        <score>40</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T14:24:57.643+01:00</date>
-        <firstname>ezez</firstname>
-        <lastname>ezzeez</lastname>
-        <score>10</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T14:25:35.017+01:00</date>
-        <firstname>zaaz</firstname>
-        <lastname>azzaaz</lastname>
-        <score>20</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T14:26:17.737+01:00</date>
-        <firstname>fefe</firstname>
-        <lastname>fefefe</lastname>
-        <score>0</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T15:02:27.926+01:00</date>
-        <firstname>aaaa</firstname>
-        <lastname>aaaa</lastname>
-        <score>20</score>
     </entry>
 </HighScores>
