@@ -1,14 +1,12 @@
 package controller.persistence;
 
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
 import model.game.Entry;
 import model.game.Player;
+import org.bson.Document;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -33,7 +31,6 @@ public class MongoDB implements BDD {
     public void saveGame(Player player, int score) throws SQLException {
         Entry entry = new Entry(player.getLastname(), player.getFirstname(), score, new Date(System.currentTimeMillis()));
         insertEntry(entry);
-        getHighScores();
     }
 
     private void insertEntry(Entry entry) {
