@@ -1,8 +1,8 @@
 package controller.persistence;
 
-import model.game.Entry;
-import model.game.HighScores;
-import model.game.Player;
+import model.Entry;
+import model.HighScores;
+import model.Player;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

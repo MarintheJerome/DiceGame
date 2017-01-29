@@ -1,9 +1,8 @@
 package controller.persistence;
 
-import model.game.Entry;
-import model.game.Player;
+import model.Entry;
+import model.Player;
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**

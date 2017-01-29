@@ -1,7 +1,7 @@
 package controller.persistence;
 
-import model.game.Entry;
-import model.game.Player;
+import model.Entry;
+import model.Player;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

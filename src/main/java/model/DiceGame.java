@@ -1,10 +1,13 @@
-import view.Vue;
+package model;
+
+import controller.persistence.BDD;
 
 /**
  * Created by jerome on 06/01/2017.
  */
 public class DiceGame {
     private static DiceGame instance = null;
+    private BDD choosenBDD;
 
     public synchronized static DiceGame getInstance() {
         if(instance == null){
@@ -14,6 +17,14 @@ public class DiceGame {
     }
 
     private DiceGame() {
-        Vue.launch(Vue.class);
+
+    }
+
+    public void setChoosenBDD(BDD bdd){
+        this.choosenBDD = bdd;
+    }
+
+    public BDD getChoosenBDD(){
+        return this.choosenBDD;
     }
 }

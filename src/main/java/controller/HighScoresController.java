@@ -7,7 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.game.Entry;
+import model.DiceGame;
+import model.Entry;
 import controller.persistence.BDD;
 import controller.persistence.FactoryBDD;
 
@@ -29,11 +30,10 @@ public class HighScoresController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         tableView.setEditable(true);
 
-        FactoryBDD factory = new FactoryBDD();
-        BDD mariaDB = factory.getBDD("MariaDB");
-        ArrayList<Entry> highScores = new ArrayList<Entry>();
+        ArrayList<Entry> highScores = new ArrayList<>();
+        BDD bdd = DiceGame.getInstance().getChoosenBDD();
         try {
-             highScores = mariaDB.getHighScores();
+             highScores = bdd.getHighScores();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -1,5 +1,7 @@
 package controller;
 
+import controller.persistence.BDD;
+import controller.persistence.FactoryBDD;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,7 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import model.game.Player;
+import model.DiceGame;
+import model.Player;
+import model.Randomizer;
 import view.Vue;
 
 import java.io.IOException;
@@ -42,6 +46,8 @@ public class AccueilController implements Initializable {
         else{
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/principale.fxml"));
             try {
+                setChoosenBDD();
+
                 Player player = new Player(lastname.getText(), firstname.getText());
 
                 // Ouverture de la fenêtre de jeu
@@ -57,9 +63,26 @@ public class AccueilController implements Initializable {
                 Vue.stagePrincipal.close();
                 gameWindow.showAndWait();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
+    }
+
+    private void setChoosenBDD() {
+        FactoryBDD factory = new FactoryBDD();
+        BDD bdd = null;
+        Randomizer randomizer = Randomizer.getInstance();
+        int randomValue = randomizer.getRandomValue(1, 3);
+
+        if(randomValue == 1){
+            bdd = factory.getBDD("MongoDB");
+        }
+        if(randomValue == 2){
+            bdd = factory.getBDD("File");
+        }
+        if(randomValue == 3){
+            bdd = factory.getBDD("MariaDB");
+        }
+        DiceGame.getInstance().setChoosenBDD(bdd);
     }
 }

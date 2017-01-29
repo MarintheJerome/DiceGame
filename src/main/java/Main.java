@@ -1,5 +1,8 @@
+import model.DiceGame;
+import view.Vue;
+
 public class Main {
     public static void main(String[] args){
-        DiceGame.getInstance();
+        Vue.launch(Vue.class);
     }
 }

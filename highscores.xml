@@ -54,4 +54,10 @@
         <lastname>fefefe</lastname>
         <score>0</score>
     </entry>
+    <entry>
+        <date>2017-01-29T15:02:27.926+01:00</date>
+        <firstname>aaaa</firstname>
+        <lastname>aaaa</lastname>
+        <score>20</score>
+    </entry>
 </HighScores>

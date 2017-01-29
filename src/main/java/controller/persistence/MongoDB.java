@@ -4,8 +4,8 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import model.game.Entry;
-import model.game.Player;
+import model.Entry;
+import model.Player;
 import org.bson.Document;
 
 import java.sql.Date;

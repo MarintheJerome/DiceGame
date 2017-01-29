@@ -1,4 +1,4 @@
-package model.game;
+package model;
 
 import javax.xml.bind.annotation.XmlElement;
 import java.util.Date;

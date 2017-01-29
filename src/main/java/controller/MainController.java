@@ -13,16 +13,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import model.game.Die;
-import model.game.Player;
+import model.DiceGame;
+import model.Die;
+import model.Player;
 import controller.persistence.BDD;
 import controller.persistence.FactoryBDD;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.ResourceBundle;
 
 /**
@@ -33,7 +32,7 @@ public class MainController implements Initializable{
     private final static int NUMBER_ROLL_AUTHORIZED = 10;
 
     @FXML
-    public Button buttonHighScores, buttonSave, buttonRules, buttonDice, buttonReplay;
+    public Button buttonHighScores, buttonRules, buttonDice, buttonReplay;
 
     @FXML
     public ImageView pictureDie1, pictureDie2;
@@ -97,13 +96,17 @@ public class MainController implements Initializable{
     private void saveGame() throws SQLException {
         FactoryBDD factory = new FactoryBDD();
 
-        BDD mariaDB = factory.getBDD("MariaDB");
-        mariaDB.saveGame(player, Integer.parseInt(textFieldScore.getText()));
+        BDD mariaDB;
+        BDD mongoDB;
+        BDD file;
 
-        BDD file = factory.getBDD("File");
+        file = factory.getBDD("File");
         file.saveGame(player, Integer.parseInt(textFieldScore.getText()));
 
-        BDD mongoDB = factory.getBDD("MongoDB");
+        mariaDB = factory.getBDD("MariaDB");
+        mariaDB.saveGame(player, Integer.parseInt(textFieldScore.getText()));
+
+        mongoDB = factory.getBDD("MongoDB");
         mongoDB.saveGame(player, Integer.parseInt(textFieldScore.getText()));
     }
 
