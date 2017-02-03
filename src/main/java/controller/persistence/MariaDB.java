@@ -95,14 +95,16 @@ public class MariaDB implements Save {
     @Override
     public ArrayList<Entry> getHighScores() throws SQLException {
         ArrayList<Entry> toReturn = new ArrayList<>();
-        PreparedStatement preparedStatement;
-        String request = "SELECT * FROM Highscores";
-        preparedStatement = connection.prepareStatement(request);
-        ResultSet result = preparedStatement.executeQuery();
-        while(result.next()){
-            int idPlayer = result.getInt("idPlayer");
-            Player player = getPlayerFromId(idPlayer);
-            toReturn.add(new Entry(player.getLastname(), player.getFirstname(), result.getInt("score"), result.getDate("date")));
+        if(connected) {
+            PreparedStatement preparedStatement;
+            String request = "SELECT * FROM Highscores";
+            preparedStatement = connection.prepareStatement(request);
+            ResultSet result = preparedStatement.executeQuery();
+            while (result.next()) {
+                int idPlayer = result.getInt("idPlayer");
+                Player player = getPlayerFromId(idPlayer);
+                toReturn.add(new Entry(player.getLastname(), player.getFirstname(), result.getInt("score"), result.getDate("date")));
+            }
         }
         return toReturn;
     }
