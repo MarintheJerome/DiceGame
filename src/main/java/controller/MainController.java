@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.DiceGame;
 import model.Die;
 import model.Player;
 import controller.persistence.Save;

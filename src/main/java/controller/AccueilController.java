@@ -44,25 +44,25 @@ public class AccueilController implements Initializable {
             errorMessage.setVisible(true);
         }
         else{
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/principale.fxml"));
-            try {
-                setChoosenBDD();
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/principale.fxml"));
+                try {
+                    setChoosenBDD();
 
-                Player player = new Player(lastname.getText(), firstname.getText());
+                    Player player = new Player(lastname.getText(), firstname.getText());
 
-                // Ouverture de la fenêtre de jeu
-                page = loader.load();
+                    // Ouverture de la fenêtre de jeu
+                    page = loader.load();
 
-                MainController controller = loader.getController();
-                controller.setPlayer(player);
+                    MainController controller = loader.getController();
+                    controller.setPlayer(player);
 
-                gameWindow = new Stage();
-                gameWindow.setTitle("SUPER DICE GAME");
-                Scene scene = new Scene(page, 600, 400);
-                gameWindow.setScene(scene);
-                Vue.stagePrincipal.close();
-                gameWindow.showAndWait();
-            } catch (IOException e) {
+                    gameWindow = new Stage();
+                    gameWindow.setTitle("SUPER DICE GAME");
+                    Scene scene = new Scene(page, 600, 400);
+                    gameWindow.setScene(scene);
+                    Vue.stagePrincipal.close();
+                    gameWindow.showAndWait();
+                } catch (IOException e) {
                 e.printStackTrace();
             }
         }

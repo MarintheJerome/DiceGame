@@ -19,30 +19,39 @@ public class MariaDB implements Save {
 
     private Connection connection;
 
+    private boolean connected;
+
     public MariaDB(){
         connection = null;
         try {
             Class.forName("org.mariadb.jdbc.Driver");
 
             connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/DiceGame", "root", "root");
+            connected = true;
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            connected = false;
+            System.out.println("Pas de base de données MariaDB ouverte à l'adresse //localhost:3306/DiceGame pour l'utilisateur root et le mdp root.");
+            System.out.println("La partie ne pourra pas être sauvegardée via MariaDB.");
         }
     }
 
     public void saveGame(Player player, int score) throws SQLException {
-        player = insertPlayer(player);
-        insertHighScores(player, score);
+        if(connected){
+            player = insertPlayer(player);
+            insertHighScores(player, score);
+        }
     }
 
     private void insertHighScores(Player player, int score) throws SQLException {
-        PreparedStatement preparedStatement;
-        String request = "INSERT INTO HIGHSCORES(idPlayer, score, date) VALUES(?, ?, ?)";
-        preparedStatement = connection.prepareStatement(request);
-        preparedStatement.setInt(1, player.getId());
-        preparedStatement.setInt(2, score);
-        preparedStatement.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
-        preparedStatement.executeUpdate();
+        if(connected) {
+            PreparedStatement preparedStatement;
+            String request = "INSERT INTO HIGHSCORES(idPlayer, score, date) VALUES(?, ?, ?)";
+            preparedStatement = connection.prepareStatement(request);
+            preparedStatement.setInt(1, player.getId());
+            preparedStatement.setInt(2, score);
+            preparedStatement.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+            preparedStatement.executeUpdate();
+        }
     }
 
     private Player insertPlayer(Player player) throws SQLException {

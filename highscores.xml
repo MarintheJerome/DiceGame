@@ -1,45 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <HighScores>
-    <entry>
-        <date>2017-01-29T21:23:57.227+01:00</date>
-        <firstname>az</firstname>
-        <lastname>za</lastname>
-        <score>10</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T21:24:03.125+01:00</date>
-        <firstname>az</firstname>
-        <lastname>za</lastname>
-        <score>30</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T21:24:08.680+01:00</date>
-        <firstname>az</firstname>
-        <lastname>za</lastname>
-        <score>10</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T21:35:00.803+01:00</date>
-        <firstname>ht</firstname>
-        <lastname>ht</lastname>
-        <score>10</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T21:39:24.142+01:00</date>
-        <firstname>fz</firstname>
-        <lastname>fz</lastname>
-        <score>20</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T22:17:40.670+01:00</date>
-        <firstname>fe</firstname>
-        <lastname>ge</lastname>
-        <score>30</score>
-    </entry>
-    <entry>
-        <date>2017-01-29T22:18:32.975+01:00</date>
-        <firstname>fe</firstname>
-        <lastname>ef</lastname>
-        <score>10</score>
-    </entry>
+    
 </HighScores>

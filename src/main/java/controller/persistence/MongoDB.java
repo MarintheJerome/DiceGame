@@ -1,6 +1,8 @@
 package controller.persistence;
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoSocketOpenException;
+import com.mongodb.MongoTimeoutException;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -8,6 +10,7 @@ import model.Entry;
 import model.Player;
 import org.bson.Document;
 
+import java.net.ConnectException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -17,13 +20,11 @@ import java.util.ArrayList;
  */
 public class MongoDB implements Save {
 
-    private MongoClient mc ;
-    private MongoDatabase mdb ;
     private MongoCollection<Document> collection;
 
     public MongoDB(){
-        mc = new MongoClient("localhost",27017);
-        mdb = mc.getDatabase("DiceGame");
+        MongoClient mc = new MongoClient("localhost", 27017);
+        MongoDatabase mdb = mc.getDatabase("DiceGame");
         collection = mdb.getCollection("entries");
     }
 
